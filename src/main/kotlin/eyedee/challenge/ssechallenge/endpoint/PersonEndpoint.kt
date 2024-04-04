@@ -22,5 +22,4 @@ class PersonEndpoint(
     )
     suspend fun getAllPersons(): Flow<Person> =
         rawSseConverterService.convertRawSse(rawSseClient.rawSse())
-            .asFlow()
 }
