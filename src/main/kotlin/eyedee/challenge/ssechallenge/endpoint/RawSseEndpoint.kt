@@ -13,11 +13,9 @@ import org.springframework.web.bind.annotation.RestController
 class RawSseEndpoint(
     private val rawSseGeneratorService: RawSseGeneratorService,
 ) {
-
     @PostMapping(
         path = ["generate"],
         produces = [MediaType.TEXT_EVENT_STREAM_VALUE],
     )
-    fun generateRawSseResponse(): Flow<RawSseResponse> =
-        rawSseGeneratorService.generateRawSseResponse()
+    fun generateRawSseResponse(): Flow<RawSseResponse> = rawSseGeneratorService.generateRawSseResponse()
 }

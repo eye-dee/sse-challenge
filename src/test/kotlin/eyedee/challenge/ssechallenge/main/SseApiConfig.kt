@@ -14,10 +14,9 @@ import java.time.Duration
 class SseApiConfig(
     private val jacksonConverterFactory: JacksonConverterFactory,
 ) {
-
     @Bean
     fun geminiApiRetrofit(
-        @Value("\${local.server.port}") serverPort: Int
+        @Value("\${local.server.port}") serverPort: Int,
     ): Retrofit =
         OkHttpClient.Builder()
             .connectTimeout(Duration.ofSeconds(10))
@@ -32,6 +31,5 @@ class SseApiConfig(
             }
 
     @Bean
-    fun sseChallengeApi(sseChallengeRetrofit: Retrofit): SseChallengeApi =
-        sseChallengeRetrofit.create(SseChallengeApi::class.java)
+    fun sseChallengeApi(sseChallengeRetrofit: Retrofit): SseChallengeApi = sseChallengeRetrofit.create(SseChallengeApi::class.java)
 }

@@ -10,6 +10,5 @@ class RetrofitConfiguration(
     private val objectMapper: ObjectMapper,
 ) {
     @Bean
-    fun jacksonConverterFactory(): JacksonConverterFactory =
-        JacksonConverterFactory.create(objectMapper)
+    fun jacksonConverterFactory(): JacksonConverterFactory = JacksonConverterFactory.create(objectMapper)
 }

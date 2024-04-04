@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("api/v1/persons")
 class PersonEndpoint {
-
     @PostMapping(
         path = ["all"],
         produces = [MediaType.TEXT_EVENT_STREAM_VALUE],
