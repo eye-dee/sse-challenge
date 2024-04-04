@@ -15,7 +15,7 @@ class SseApiConfig(
     private val jacksonConverterFactory: JacksonConverterFactory,
 ) {
     @Bean
-    fun geminiApiRetrofit(
+    fun sseChallengeRetrofit(
         @Value("\${local.server.port}") serverPort: Int,
     ): Retrofit =
         OkHttpClient.Builder()
