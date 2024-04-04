@@ -4,8 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import eyedee.challenge.ssechallenge.model.Person
 import eyedee.challenge.ssechallenge.service.RawSseGeneratorService.Companion.PERSON_LIST
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
@@ -14,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.annotation.Import
 import org.springframework.test.context.ActiveProfiles
 import java.io.BufferedReader
+import kotlin.time.Duration.Companion.minutes
 
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
@@ -29,9 +28,9 @@ class PersonApiTest {
 
     @Test
     fun `request person lists with sse`() =
-        runTest {
+        runTest(timeout = 10.minutes) {
             val res =
-                sseChallengeApi.betaStreamGenerateContent()
+                sseChallengeApi.getPersons()
                     .byteStream()
                     .let { inputStream ->
                         BufferedReader(inputStream.reader())

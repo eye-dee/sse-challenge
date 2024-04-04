@@ -1,35 +1,32 @@
-package eyedee.challenge.ssechallenge.main
+package eyedee.challenge.ssechallenge.config
 
+import eyedee.challenge.ssechallenge.client.RawSseApi
 import okhttp3.OkHttpClient
-import org.springframework.beans.factory.annotation.Value
-import org.springframework.boot.test.context.TestConfiguration
 import org.springframework.context.annotation.Bean
-import org.springframework.context.annotation.Lazy
+import org.springframework.context.annotation.Configuration
 import retrofit2.Retrofit
 import retrofit2.converter.jackson.JacksonConverterFactory
 import java.time.Duration
 
-@Lazy
-@TestConfiguration
-class SseApiConfig(
+@Configuration
+class RawSseRetrofitConfiguration(
     private val jacksonConverterFactory: JacksonConverterFactory,
+    private val rawSseProviderProperties: RawSseProviderProperties,
 ) {
     @Bean
-    fun sseChallengeRetrofit(
-        @Value("\${local.server.port}") serverPort: Int,
-    ): Retrofit =
+    fun rawSseRetrofit(): Retrofit =
         OkHttpClient.Builder()
             .connectTimeout(Duration.ofSeconds(10))
             .readTimeout(Duration.ofMinutes(50))
             .writeTimeout(Duration.ofMinutes(50))
             .let {
                 Retrofit.Builder()
-                    .baseUrl("http://localhost:$serverPort")
+                    .baseUrl(rawSseProviderProperties.url)
                     .addConverterFactory(jacksonConverterFactory)
                     .client(it.build())
                     .build()
             }
 
     @Bean
-    fun sseChallengeApi(sseChallengeRetrofit: Retrofit): SseChallengeApi = sseChallengeRetrofit.create(SseChallengeApi::class.java)
+    fun rawSseApi(rawSseRetrofit: Retrofit): RawSseApi = rawSseRetrofit.create(RawSseApi::class.java)
 }

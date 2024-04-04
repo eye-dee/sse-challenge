@@ -7,5 +7,5 @@ import retrofit2.http.Streaming
 interface SseChallengeApi {
     @POST("api/v1/persons/all")
     @Streaming
-    suspend fun betaStreamGenerateContent(): ResponseBody
+    suspend fun getPersons(): ResponseBody
 }

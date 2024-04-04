@@ -1,3 +1,6 @@
+rawsse:
+  url: http://localhost:8080
+
 spring:
   application:
     name: sse-challenge

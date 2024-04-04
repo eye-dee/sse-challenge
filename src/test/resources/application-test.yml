@@ -1,0 +1,5 @@
+server:
+  port: 7777
+
+rawsse:
+  url: http://localhost:7777
