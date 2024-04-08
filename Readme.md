@@ -23,12 +23,12 @@
     * First
       ```json
           {
-        "data": "{\"name\": \"name\", \"age\": 12, \"email\": \"email\","
+        "data": "[{\"name\": \"name\", \"age\": 12, \"email\": \"email\","
       }
       ```
     * Second
       ```json
-              {"data": "\"address\": \"address\"}"}
+              {"data": "\"address\": \"address\"}]"}
       ```
 * One SSE event is output:
   
