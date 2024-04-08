@@ -33,7 +33,7 @@
 * One SSE event is output:
   
   ```json
-  {"name": "name", "age": "age", "email": "email", "address": "address"}
+  {"name": "name", "age": 12, "email": "email", "address": "address"}
   ```
   
 ## Entry Point
