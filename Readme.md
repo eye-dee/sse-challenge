@@ -22,9 +22,7 @@
 * There are 2 raw sse events with the following data accordingly as input
     * First
       ```json
-          {
-        "data": "[{\"name\": \"name\", \"age\": 12, \"email\": \"email\","
-      }
+          {"data": "[{\"name\": \"name\", \"age\": 12, \"email\": \"email\","}
       ```
     * Second
       ```json
