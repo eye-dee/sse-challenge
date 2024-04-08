@@ -4,7 +4,6 @@ import eyedee.challenge.ssechallenge.client.RawSseClient
 import eyedee.challenge.ssechallenge.model.Person
 import eyedee.challenge.ssechallenge.service.RawSseConverterService
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.asFlow
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
