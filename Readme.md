@@ -39,7 +39,7 @@
 For the testing please use `PersonApiTest`
 
 The most important requirement:
-. HTTP client **MUST receive SSE events** as long as json-string/bytes form valid person object.
+* HTTP client **MUST receive SSE events** as long as json-string/bytes form valid person object.
 So even if the test passes, that's not checking all requirements of the exercise
 
 Good luck and have fun!
